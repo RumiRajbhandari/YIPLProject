@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">YIPLProject</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="hint_email">Enter emailid</string>
+    <string name="hint_password">Enter password</string>
+    <string name="hint_name">Enter Full Name</string>
+    <string name="btn_login">Log In</string>
+    <string name="btn_link_reg">Not Registered?Sign Up</string>
+    <string name="btn_reg">Sign Up</string>
+    <string name="sent_to">To</string>
+    <string name="msg_head">Header</string>
+    <string name="msg_body">Body</string>
+    <string name="send">Send</string>
+    <string name="post">Post in Forum</string>
+    <string name="forum">Forum</string>
+    <string name="voted">Voted</string>
+    <string name="btn_linkToComplain">Complain Here</string>
+
+    <string-array name="email_arrays">
+        <item>priyanca.gyawali1@gmail.com</item>
+        <item>sushmagiri123@gmail.com</item>
+        <item>rupakkc003@gmail.com</item>
+        <item>priyanka.gyawali1@gmail.com</item>
+
+    </string-array>
+</resources>
