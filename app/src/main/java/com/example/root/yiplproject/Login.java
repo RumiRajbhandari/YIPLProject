@@ -46,35 +46,6 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
 
                Backendless.initApp(getApplicationContext(),"F4C26AE7-9CA0-8CB8-FF49-D66D9F1C0D00", "9D8E4C70-E734-CAA5-FFFD-B69BAE068400");
-/*
-                final Order order = new Order();
-
-                OrderItem orderItem1 = new OrderItem();
-                orderItem1.setName( "Printer" );
-                orderItem1.setQuantity( 1 );
-                orderItem1.setPrice( 99 );
-
-                OrderItem orderItem2 = new OrderItem();
-                orderItem2.setName( "Paper" );
-                orderItem2.setQuantity( 10 );
-                orderItem2.setPrice( 19 );
-
-                order.addOrderItem( orderItem1 );
-                order.addOrderItem( orderItem2 );
-                order.setOrderName( "Office Supplies" );
-                order.setOrderNumber( 1 );
-
-                Thread t=new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Backendless.Data.of( Order.class ).save( order );
-                        System.out.println( "Order has been saved" );
-                    }
-                });
-                t.start();*/
-
-
-
                 loginUserAsync();
 //                passMessage();
 //                subscribeMessage();

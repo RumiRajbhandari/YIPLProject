@@ -45,9 +45,24 @@ public class ForumActivity extends AppCompatActivity {
         String whereClause = "";
         DataQueryBuilder dataQuery = DataQueryBuilder.create();
         dataQuery.setWhereClause( whereClause );
+        dataQuery.setPageSize(50);
+
+        Backendless.Data.of(Complain.class).find(dataQuery, new AsyncCallback<List<Complain>>() {
+            @Override
+            public void handleResponse(List<Complain> response) {
+                complains= response;
+                adapter = new ForumAdapter(complains,getApplicationContext());
+                recyclerView.setAdapter(adapter);
+            }
+
+            @Override
+            public void handleFault(BackendlessFault fault) {
+
+            }
+        });
 
 
-        Backendless.Persistence.of(Complain.class).find(new AsyncCallback<List<Complain>>() {
+        /*Backendless.Persistence.of(Complain.class).find(dataQuery,new AsyncCallback<List<Complain>>() {
             @Override
             public void handleResponse(List<Complain> response) {
                 // create a list for your data
@@ -71,7 +86,7 @@ public class ForumActivity extends AppCompatActivity {
                 Log.e("TAG", "handleFault: "+fault.toString() );
 
             }
-        });
+        });*/
 
 
     }
