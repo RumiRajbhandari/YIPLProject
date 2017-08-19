@@ -53,10 +53,13 @@ public class ComplainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_complain);
 
         Bundle bundle = getIntent().getExtras();
-        //userid = bundle.getString("rumi");
-        userid=bundle.getString("rumi");
-        Log.e(TAG, "user is "+userid.toString() );
-//        Log.e(TAG, "ComplainActivitya : "+user );
+
+//        userid = bundle.getString("rumi");
+//        if(userid!=null) {
+//            userid = bundle.getString("rumi");
+//        }
+//        Log.e(TAG, "user is "+userid.toString() );
+        Log.e(TAG, "ComplainActivitya : "+user );
         txtChoose = (TextView) findViewById(R.id.txtchoose);
         spinner1 = (Spinner) findViewById(R.id.spinnerTo);
         txtHead = (EditText) findViewById(R.id.send_head);

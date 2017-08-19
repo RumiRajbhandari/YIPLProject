@@ -25,6 +25,8 @@ public class ForumActivity extends AppCompatActivity {
     private List<Complain> complains;
     private ForumAdapter adapter;
 
+
+
     String user;
     String TAG="Tag";
     Button action;
