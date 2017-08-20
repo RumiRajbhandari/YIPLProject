@@ -17,6 +17,9 @@
     <string name="forum">Forum</string>
     <string name="voted">Voted</string>
     <string name="btn_linkToComplain">Complain Here</string>
+    <string name="choose_an_email">Choose an email</string>
+    <string name="subject">Subject</string>
+    <string name="logout">Logout</string>
 
     <string-array name="email_arrays">
         <item>priyanca.gyawali1@gmail.com</item>
