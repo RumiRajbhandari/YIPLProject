@@ -79,7 +79,6 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder>{
                 vh.linear.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        // Do whatever you want on clicking the normal items
 
                         Intent intent=new Intent(context, ComplainDetail.class);
                         intent.putExtra("hello",complain.get(position));
@@ -107,7 +106,7 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder>{
     @Override
     public int getItemViewType(int position) {
         if (position == complain.size()) {
-            // This is where we'll add footer.
+
             return FOOTER_VIEW;
         }
 
