@@ -19,8 +19,11 @@ import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.async.callback.BackendlessCallback;
 import com.backendless.exceptions.BackendlessFault;
+import com.backendless.files.BackendlessFile;
 import com.example.root.yiplproject.model.Complain;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -52,6 +55,8 @@ public class ComplainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complain);
 
+
+
         Bundle bundle = getIntent().getExtras();
 
 //        userid = bundle.getString("rumi");
@@ -75,7 +80,9 @@ public class ComplainActivity extends AppCompatActivity {
                 ComplainActivity.this,
                 android.R.layout.simple_list_item_1,
                 arrayUri);
+
         listViewFiles = (ListView) findViewById(R.id.filelist);
+
         listViewFiles.setAdapter(myFileListAdapter);
 
         btnPost.setOnClickListener(new View.OnClickListener() {
@@ -94,10 +101,14 @@ public class ComplainActivity extends AppCompatActivity {
 
             Intent intent = new Intent(Intent.ACTION_PICK,
                     android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
             startActivityForResult(intent, RQS_LOADIMAGE);
 
 
+
+
         }
+
     };
 
     View.OnClickListener sendOnClickListener
