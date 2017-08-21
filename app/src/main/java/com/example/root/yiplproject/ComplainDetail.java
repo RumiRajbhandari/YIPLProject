@@ -97,6 +97,7 @@ public class ComplainDetail extends AppCompatActivity {
         String whereClause = "complainId = '"+complain.getObjectId()+"'";
         DataQueryBuilder dataQuery = DataQueryBuilder.create();
         dataQuery.setWhereClause( whereClause );
+        dataQuery.setPageSize(100);
         Log.e(TAG, "onCreate:object Id "+complain.getObjectId() );
 
 

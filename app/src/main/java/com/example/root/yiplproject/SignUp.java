@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
@@ -15,6 +16,9 @@ import com.backendless.async.callback.BackendlessCallback;
 public class SignUp extends AppCompatActivity {
     EditText username,password,email;
     Button signup;
+    public String userid;
+    BackendlessUser userLogIn;
+    String TAG="TAG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +46,19 @@ public class SignUp extends AppCompatActivity {
                     @Override
                     public void handleResponse( BackendlessUser backendlessUser )
                     {
-                        Log.i( "Registration", backendlessUser.getEmail() + " successfully registered" );
+                        userLogIn=backendlessUser;
+                        System.out.println( "User has been logged in - " + backendlessUser.getObjectId() );
+                        userid=backendlessUser.getObjectId();
+                        Log.e(TAG, "handleResponse: user is :  "+backendlessUser.toString() );
+                        Log.e(TAG, "userid1is: "+userid);
+                        Log.e(TAG, "handleResponse: "+backendlessUser.getUserId() );
+                        if (userid!=null){
+                            Intent intent=new Intent(SignUp.this, ComplainActivity.class);
+                            intent.putExtra("rumi",userid);
+                            Log.e(TAG, "userid:2 "+userid );
+                            startActivity(intent);
+                        }
+
                     }
                 } );
             }

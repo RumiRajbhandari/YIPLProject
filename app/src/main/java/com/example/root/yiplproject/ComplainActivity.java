@@ -29,12 +29,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-
 public class ComplainActivity extends AppCompatActivity {
     public EditText  txtHead, txtBody;
     TextView txtChoose;
     private Spinner spinner1;
-    Button send, btnPost, imgbutton;
+    Button send, btnPost, imgbutton, btnLogout;
     String TAG = "TAG";
     public String objectId;
     public String userid, to, head, body, datee;
@@ -72,6 +71,7 @@ public class ComplainActivity extends AppCompatActivity {
         send = (Button) findViewById(R.id.btn_send);
         btnPost = (Button) findViewById(R.id.btn_post);
         imgbutton = (Button) findViewById(R.id.imgbtn);
+        btnLogout = (Button) findViewById(R.id.btn_logout);
 
         imgbutton.setOnClickListener(imgbuttonOnClickListener);
         send.setOnClickListener(sendOnClickListener);
@@ -84,6 +84,17 @@ public class ComplainActivity extends AppCompatActivity {
         listViewFiles = (ListView) findViewById(R.id.filelist);
 
         listViewFiles.setAdapter(myFileListAdapter);
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Backendless.UserService.logout(new BackendlessCallback<Void>() {
+                    @Override
+                    public void handleResponse(Void response) {
+                        finish();
+                    }
+                });
+            }
+        });
 
         btnPost.setOnClickListener(new View.OnClickListener() {
             @Override
