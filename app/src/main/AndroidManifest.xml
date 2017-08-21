@@ -21,7 +21,8 @@
         <activity android:name=".ComplainActivity" />
         <activity android:name=".ComplainDetail" />
         <activity android:name=".ForumActivity" />
-        <activity android:name=".SignUp" />
+        <activity android:name=".FirstProject" />
+        <activity android:name=".SecondProject" />
         <activity android:name=".Login"></activity>
     </application>
 
