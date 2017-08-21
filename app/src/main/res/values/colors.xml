@@ -7,6 +7,7 @@
     <color name="textColor">#303F9F</color>
     <color name="yellow">#e98613</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="colorItemHighlight">#33616161</color>
 
     <!-- Screens background color-->
     <color name="bg_screen1">#f64c73</color>
@@ -39,4 +40,7 @@
         <item>@color/dot_dark_screen3</item>
         <item>@color/dot_dark_screen4</item>
     </array>
+
+
+
 </resources>

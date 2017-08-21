@@ -94,6 +94,7 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder>{
                     @Override
                     public void onClick(View v) {
                         Intent intent=new Intent(context,ComplainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
                     }
                 });

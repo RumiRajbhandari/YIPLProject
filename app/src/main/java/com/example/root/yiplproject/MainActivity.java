@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.backendless.Backendless;
 import com.backendless.async.callback.BackendlessCallback;
+import com.example.root.yiplproject.activity.ContractorActivity;
 
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         contrator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ListofContractor.class);
+                Intent intent = new Intent(MainActivity.this, ContractorActivity.class);
                 intent.putExtra("rumi", "rumi");
                 startActivity(intent);
             }
