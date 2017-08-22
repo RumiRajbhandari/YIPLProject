@@ -14,16 +14,19 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:text="About Us"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textColor="@color/yellow"
-        android:textSize="20dp" />
+        android:textSize="30dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:textSize="15dp"
-        android:text="Gunaso is a platform where users can get a clear check reality to the open data provided by the government in terms of public constructions happening in Nepal.Users can view details about any contract related to public procurement like contractor name, completion time of project, etc.A forum is provided for user to share their feedback on the current scenario of road constructions.We believe in bringing the transparency back to the track."
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textAlignment="viewStart"
+        android:text="Gunaso is an app to hold government led road projects accountable with various information on planning, tender, award, and contract. It is a platform where users can get a clear check reality to the open data provided by the government. A forum is also provided for the user to share their feedback on the current scenario of road constructions. Thus, we believe in bringing the transparency back to the track."
         android:layout_below="@+id/textView"
         android:layout_alignParentStart="true" />
 
