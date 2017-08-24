@@ -75,6 +75,7 @@
     <string name="voted">Voted</string>
     <string name="btn_linkToComplain">Complain Here</string>
     <string name="choose_an_email">Choose an email</string>
+    <string name="choose_a_project">Choose a project</string>
     <string name="subject">Subject</string>
     <string name="logout">Logout</string>
 
@@ -83,6 +84,13 @@
         <item>sushmagiri123@gmail.com</item>
         <item>rupakkc003@gmail.com</item>
         <item>priyanka.gyawali1@gmail.com</item>
+    </string-array>
+
+    <string-array name="project_arrays">
+        <item>Sunkoshi Construction</item>
+        <item>Hiranchan Construction</item>
+        <item>others</item>
+
 
     </string-array>
 

@@ -29,6 +29,21 @@
             android:entries="@array/email_arrays"
             android:padding="10dp" />
 
+        <TextView
+            android:id="@+id/txtchoose1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_a_project"
+            android:textColor="#000"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/spinnerproject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/project_arrays"
+            android:padding="10dp" />
+
 
         <EditText
             android:id="@+id/send_head"

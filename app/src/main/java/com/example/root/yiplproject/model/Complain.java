@@ -7,7 +7,7 @@ import java.util.List;
  * Created by root on 7/18/17.
  */
 public class Complain implements Serializable {
-    private String to,body,datee,head,id,objectId,ownerId;
+    private String to,body,datee,head,project,id,objectId,ownerId;
     List<Likes> like;
 
     public Complain(){}
@@ -16,21 +16,23 @@ public class Complain implements Serializable {
         return id;
     }
 
-    public Complain(String to,String head, String body, String date,  String id) {
+    public Complain(String to,String head, String body, String date, String project, String id) {
         this.to = to;
         this.body = body;
         this.datee = date;
         this.head = head;
         this.id = id;
+        this.project=project;
     }
 
-    public Complain(String to,String head, String body, String date,  String id,String ownerId) {
+    public Complain(String to,String head, String body, String date, String project, String id,String ownerId) {
         this.to = to;
         this.body = body;
         this.datee = date;
         this.head = head;
         this.id = id;
         this.ownerId=ownerId;
+        this.project=project;
     }
 
 
@@ -96,10 +98,19 @@ public class Complain implements Serializable {
         this.datee = date;
     }
 
+    public String getProject() {
+        return project;
+    }
+
+    public void setProject(String project) {
+        this.project = project;
+    }
+
     @Override
     public String toString() {
         return "Complain{" +
                 "to='" + to + '\'' +
+                "project='" + project + '\'' +
                 ", body='" + body + '\'' +
                 ", datee='" + datee + '\'' +
                 ", head='" + head + '\'' +

@@ -19,11 +19,8 @@ import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.async.callback.BackendlessCallback;
 import com.backendless.exceptions.BackendlessFault;
-import com.backendless.files.BackendlessFile;
 import com.example.root.yiplproject.model.Complain;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -32,11 +29,11 @@ import java.util.Calendar;
 public class ComplainActivity extends AppCompatActivity {
     public EditText  txtHead, txtBody;
     TextView txtChoose;
-    private Spinner spinner1;
+    private Spinner spinner1 , spinner2;
     Button send, btnPost, imgbutton, btnLogout;
     String TAG = "TAG";
     public String objectId;
-    public String userid, to, head, body, datee;
+    public String userid, to, head, body, datee,project;
     ListView listViewFiles;
     BackendlessUser user;
 
@@ -66,6 +63,7 @@ public class ComplainActivity extends AppCompatActivity {
         Log.e(TAG, "ComplainActivitya : "+user );
         txtChoose = (TextView) findViewById(R.id.txtchoose);
         spinner1 = (Spinner) findViewById(R.id.spinnerTo);
+        spinner2 = (Spinner) findViewById(R.id.spinnerproject);
         txtHead = (EditText) findViewById(R.id.send_head);
         txtBody = (EditText) findViewById(R.id.send_body);
         send = (Button) findViewById(R.id.btn_send);
@@ -77,8 +75,7 @@ public class ComplainActivity extends AppCompatActivity {
         send.setOnClickListener(sendOnClickListener);
 
         myFileListAdapter = new ArrayAdapter<Uri>(
-                ComplainActivity.this,
-                android.R.layout.simple_list_item_1,
+                ComplainActivity.this, android.R.layout.simple_list_item_1,
                 arrayUri);
 
         listViewFiles = (ListView) findViewById(R.id.filelist);
@@ -187,11 +184,12 @@ public class ComplainActivity extends AppCompatActivity {
         to = String.valueOf(spinner1.getSelectedItem());
         body = txtBody.getText().toString();
         head = txtHead.getText().toString();
+        project=String.valueOf(spinner2.getSelectedItem());
         DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
         datee = df.format(Calendar.getInstance().getTime());
 
 
-        Complain complain=new Complain(to, head, body, datee,userid);
+        Complain complain=new Complain(to, head, body, datee, project,userid);
 
         Backendless.Persistence.save(complain,new BackendlessCallback<Complain>() {
 
