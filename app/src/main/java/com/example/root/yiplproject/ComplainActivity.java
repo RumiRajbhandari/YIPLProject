@@ -19,8 +19,11 @@ import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.async.callback.BackendlessCallback;
 import com.backendless.exceptions.BackendlessFault;
+import com.backendless.files.BackendlessFile;
 import com.example.root.yiplproject.model.Complain;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -51,11 +54,16 @@ public class ComplainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complain);
 
+
+
         Bundle bundle = getIntent().getExtras();
-        //userid = bundle.getString("rumi");
-        userid=bundle.getString("rumi");
-        Log.e(TAG, "user is "+userid.toString() );
-//        Log.e(TAG, "ComplainActivitya : "+user );
+
+//        userid = bundle.getString("rumi");
+//        if(userid!=null) {
+//            userid = bundle.getString("rumi");
+//        }
+//        Log.e(TAG, "user is "+userid.toString() );
+        Log.e(TAG, "ComplainActivitya : "+user );
         txtChoose = (TextView) findViewById(R.id.txtchoose);
         spinner1 = (Spinner) findViewById(R.id.spinnerTo);
         txtHead = (EditText) findViewById(R.id.send_head);
@@ -72,7 +80,9 @@ public class ComplainActivity extends AppCompatActivity {
                 ComplainActivity.this,
                 android.R.layout.simple_list_item_1,
                 arrayUri);
+
         listViewFiles = (ListView) findViewById(R.id.filelist);
+
         listViewFiles.setAdapter(myFileListAdapter);
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,10 +112,14 @@ public class ComplainActivity extends AppCompatActivity {
 
             Intent intent = new Intent(Intent.ACTION_PICK,
                     android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
             startActivityForResult(intent, RQS_LOADIMAGE);
 
 
+
+
         }
+
     };
 
     View.OnClickListener sendOnClickListener
