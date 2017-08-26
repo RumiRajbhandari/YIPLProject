@@ -16,7 +16,7 @@ public class Complain implements Serializable {
         return id;
     }
 
-    public Complain(String to,String head, String body, String date, String project, String id) {
+  /*  public Complain(String to,String head, String body, String date, String project, String id) {
         this.to = to;
         this.body = body;
         this.datee = date;
@@ -24,7 +24,7 @@ public class Complain implements Serializable {
         this.id = id;
         this.project=project;
     }
-
+*/
     public Complain(String to,String head, String body, String date, String project, String id,String ownerId) {
         this.to = to;
         this.body = body;

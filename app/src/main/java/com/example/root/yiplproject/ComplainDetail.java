@@ -12,6 +12,7 @@ import com.backendless.Backendless;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.persistence.DataQueryBuilder;
+import com.backendless.persistence.local.UserIdStorageFactory;
 import com.example.root.yiplproject.model.Complain;
 import com.example.root.yiplproject.model.Likes;
 
@@ -19,7 +20,7 @@ import java.util.List;
 
 public class ComplainDetail extends AppCompatActivity {
     Complain complain;
-    TextView head, body, date,upvoteCount;
+    TextView head, body, date,upvoteCount,project;
     Button upvote;
     List<Likes> likeList;
     String TAG = "TAG";
@@ -39,10 +40,12 @@ public class ComplainDetail extends AppCompatActivity {
         date = (TextView) findViewById(R.id.date);
         upvoteCount=(TextView)findViewById(R.id.upvote_count);
         upvote = (Button) findViewById(R.id.upvote);
+        project=(TextView)findViewById(R.id.project);
 
         head.setText(complain.getHead());
         body.setText(complain.getBody());
         date.setText(complain.getDatee());
+        project.setText(complain.getProject());
 
         getLikesCount();
 
@@ -56,7 +59,8 @@ public class ComplainDetail extends AppCompatActivity {
                 likes.setComplainId(complain.getObjectId());
                 likes.setOwnerId(complain.getOwnerId());
                 try {
-                    ls=Backendless.UserService.CurrentUser().getUserId();
+                    ls= UserIdStorageFactory.instance().getStorage().get();
+                    Log.e(TAG, "onClick: user id is "+ls );
                 }catch (Exception e){
                     Toast.makeText(ComplainDetail.this, "User not logged in.", Toast.LENGTH_SHORT).show();
                 }

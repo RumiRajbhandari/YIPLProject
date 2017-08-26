@@ -63,33 +63,5 @@ public class ForumActivity extends AppCompatActivity {
             }
         });
 
-
-        /*Backendless.Persistence.of(Complain.class).find(dataQuery,new AsyncCallback<List<Complain>>() {
-            @Override
-            public void handleResponse(List<Complain> response) {
-                // create a list for your data
-                 complains= response;
-                adapter = new ForumAdapter(complains,getApplicationContext());
-                recyclerView.setAdapter(adapter);
-
-
-                for (Complain complai:response
-                     ) {
-                    Log.e("TAG", "handleResponse: "+complai.toString() );
-
-                }
-
-
-
-            }
-
-            @Override
-            public void handleFault(BackendlessFault fault) {
-                Log.e("TAG", "handleFault: "+fault.toString() );
-
-            }
-        });*/
-
-
     }
 }

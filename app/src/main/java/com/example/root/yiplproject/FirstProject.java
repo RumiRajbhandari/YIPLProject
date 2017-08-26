@@ -17,6 +17,10 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.backendless.Backendless;
+import com.backendless.async.callback.BackendlessCallback;
 
 public class FirstProject extends AppCompatActivity {
 
@@ -194,8 +198,25 @@ public class FirstProject extends AppCompatActivity {
     }
     public void complainform(View view)
     {
+        /*Toast.makeText(FirstProject.this, "hello", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(FirstProject.this, Login.class);
        // intent.putExtra("rumi",userid);
-        startActivity(intent);
+        startActivity(intent);*/
+        Backendless.UserService.isValidLogin(new BackendlessCallback<Boolean>() {
+            @Override
+            public void handleResponse(Boolean response) {
+                String loggedInUser = Backendless.UserService.loggedInUser();
+                Intent intent;
+                if (response){
+
+                    intent = new Intent(FirstProject.this, ComplainActivity.class);
+                    intent.putExtra("rumi", loggedInUser);
+                }
+                else
+                    intent = new Intent(FirstProject.this, Login.class);
+
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -130,7 +130,7 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder>{
         return complain.size() + 1;
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView tv_date, tv_head, tv_body;
+        private TextView tv_date, tv_head, tv_body,tv_project;
         LinearLayout linear;
         Button btn_post;
 
@@ -140,6 +140,7 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder>{
             tv_date = (TextView) view.findViewById(R.id.tv_date);
             tv_head = (TextView) view.findViewById(R.id.tv_head);
             tv_body = (TextView) view.findViewById(R.id.tv_body);
+            tv_project=(TextView)view.findViewById(R.id.txt_project) ;
             btn_post=(Button)view.findViewById(R.id.btn_postComp);
 
         }
@@ -147,8 +148,9 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder>{
         public void bindView(int position) {
             // bindView() method to implement actions
             tv_date.setText(complain.get(position).getDatee());
-        tv_head.setText(complain.get(position).getHead());
-        tv_body.setText(complain.get(position).getBody());
+             tv_head.setText(complain.get(position).getHead());
+            tv_project.setText(complain.get(position).getProject());
+             tv_body.setText(complain.get(position).getBody());
 
         }
     }

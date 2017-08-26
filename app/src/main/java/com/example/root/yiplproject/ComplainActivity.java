@@ -189,7 +189,7 @@ public class ComplainActivity extends AppCompatActivity {
         datee = df.format(Calendar.getInstance().getTime());
 
 
-        Complain complain=new Complain(to, head, body, datee, project,userid);
+        Complain complain=new Complain(to, head, body, datee, project,userid,userid);
 
         Backendless.Persistence.save(complain,new BackendlessCallback<Complain>() {
 
