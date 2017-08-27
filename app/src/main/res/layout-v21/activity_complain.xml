@@ -20,13 +20,15 @@
             android:layout_height="wrap_content"
             android:text="@string/choose_an_email"
             android:textColor="#000"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <Spinner
             android:id="@+id/spinnerTo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/email_arrays"
+            android:background="@color/colorItemHighlight"
             android:padding="10dp" />
 
         <TextView
@@ -35,12 +37,14 @@
             android:layout_height="wrap_content"
             android:text="@string/choose_a_project"
             android:textColor="#000"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <Spinner
             android:id="@+id/spinnerproject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorItemHighlight"
             android:entries="@array/project_arrays"
             android:padding="10dp" />
 
@@ -78,7 +82,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:divider="#000"
-            android:dividerHeight="4dp" />
+            android:dividerHeight="4dp"
+            tools:ignore="NestedScrolling" />
 
         <Button
             android:id="@+id/btn_send"
@@ -95,7 +100,7 @@
             android:id="@+id/btn_post"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dip"
+            android:layout_marginTop="10dip"
             android:background="@color/colorPrimaryDark"
             android:text="@string/post"
             android:textAllCaps="false"
@@ -106,7 +111,9 @@
             android:id="@+id/btn_logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="10dip"
+            android:text="@string/logout"
+            android:textColor="@color/icons"
             android:background="@color/colorPrimaryDark" />
 
     </LinearLayout>

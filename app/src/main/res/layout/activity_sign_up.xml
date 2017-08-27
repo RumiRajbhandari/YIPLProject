@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.root.backendlessdemo2.MainActivity">
+    tools:context="com.example.root.yiplproject.MainActivity">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -58,7 +58,7 @@
 
             android:text="@string/btn_reg"
             android:textAllCaps="false"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/yellow"
             android:textSize="15dp" />
 
     </LinearLayout>

@@ -8,7 +8,7 @@
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
     android:orientation="vertical"
-    tools:context="com.example.user.gunasofinal.ForumActivity">
+    tools:context="com.example.root.yiplproject.ForumActivity">
     <android.support.v7.widget.RecyclerView
         android:id="@+id/card_recycler_view"
         android:scrollbars="vertical"

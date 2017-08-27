@@ -29,7 +29,8 @@
         <activity android:name=".ForumActivity" />
         <activity android:name=".FirstProject" />
         <activity android:name=".SecondProject" />
-        <activity android:name=".Login"></activity>
+        <activity android:name=".SignUp"/>
+        <activity android:name=".Login"/>
     </application>
 
 </manifest>

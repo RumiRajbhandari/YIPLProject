@@ -31,7 +31,9 @@ public class Login extends AppCompatActivity {
         signup = (Button) findViewById(R.id.btn_register);
         login = (Button) findViewById(R.id.btn_login);
         email = (EditText) findViewById(R.id.txt_email);
+
         password = (EditText) findViewById(R.id.txt_password);
+
         forum = (Button) findViewById(R.id.btn_forum);
 
         comment = new Comment();
@@ -44,6 +46,10 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 Backendless.initApp(getApplicationContext(), "F4C26AE7-9CA0-8CB8-FF49-D66D9F1C0D00", "9D8E4C70-E734-CAA5-FFFD-B69BAE068400");
                 loginUserAsync();
+                if( email.getText().toString().length() == 0 )
+                    email.setError( "First name is required!" );
+                if( password.getText().toString().length() == 0 )
+                    password.setError( "Password is required!" );
 //                passMessage();
 //                subscribeMessage();
             }

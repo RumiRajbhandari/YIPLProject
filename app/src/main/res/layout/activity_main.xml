@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:elevation="24dp"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -17,51 +18,58 @@
         android:paddingTop="40dp">
 
         <ImageView
+            android:id="@+id/contractor"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            android:elevation="10dp"
             android:src="@drawable/contractor"
-            android:id="@+id/contractor"
-            android:tag="Click me"
-            />
+            android:tag="Click me" />
+
         <ImageView
             android:id="@+id/complain"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/complain"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginStart="25dp"
+            android:elevation="24dp"
+            android:src="@drawable/complain" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="20dp">
+        android:paddingTop="20dp"
+        android:weightSum="1">
+
         <ImageView
 
-            android:layout_width="150dp"
-            android:layout_height="150dp"
             android:id="@+id/forum"
-            android:src="@drawable/forum"/>
-        <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_marginLeft="5dp"
+            android:src="@drawable/forum" />
+
+        <ImageView
             android:id="@+id/aboutus"
-            android:src="@drawable/aboutus"/>
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="25dp"
+            android:layout_weight="10"
+            android:src="@drawable/aboutus" />
 
     </LinearLayout>
+
     <TextView
         android:id="@+id/glossary"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
+        android:layout_width="327dp"
         android:layout_height="wrap_content"
-        android:text="Glossary"
-        android:background="@color/yellow"
-        android:textSize="30sp"
-        android:textColor="#fff"
-        android:textAlignment="center"
         android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/yellow"
         android:padding="10dp"
+        android:text="Glossary"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="30sp"
 
         />
 </LinearLayout>

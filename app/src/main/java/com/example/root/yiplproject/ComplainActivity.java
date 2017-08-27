@@ -72,7 +72,8 @@ public class ComplainActivity extends AppCompatActivity {
         btnLogout = (Button) findViewById(R.id.btn_logout);
 
         imgbutton.setOnClickListener(imgbuttonOnClickListener);
-        send.setOnClickListener(sendOnClickListener);
+        send.setOnClickListener(
+                sendOnClickListener);
 
         myFileListAdapter = new ArrayAdapter<Uri>(
                 ComplainActivity.this, android.R.layout.simple_list_item_1,
@@ -96,7 +97,14 @@ public class ComplainActivity extends AppCompatActivity {
         btnPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                postComplain();
+
+                    if (txtHead.getText().toString().length() == 0)
+                        txtHead.setError("First name is required!");
+                    if (txtBody.getText().toString().length() == 0)
+                        txtBody.setError("Password is required!");
+                else {
+                        postComplain();
+                    }
 
             }
         });
@@ -124,16 +132,17 @@ public class ComplainActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View arg0) {
+
             toEmail = String.valueOf(spinner1.getSelectedItem());
             bodyEmail = txtBody.getText().toString();
             headEmail = txtHead.getText().toString();
-
 
             Intent intent = new Intent(Intent.ACTION_SEND);
 
             intent.putExtra(Intent.EXTRA_EMAIL, new String[]{toEmail});
             intent.putExtra(Intent.EXTRA_SUBJECT, headEmail);
             intent.putExtra(Intent.EXTRA_TEXT, bodyEmail);
+
             if (arrayUri.isEmpty()) {
                 //Send email without photo attached
                 intent.setAction(Intent.ACTION_SEND);
@@ -149,9 +158,15 @@ public class ComplainActivity extends AppCompatActivity {
                 intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, arrayUri);
                 intent.setType("image/*");
             }
-            startActivity(Intent.createChooser(intent, "Choice App to send email:"));
-            finish();
-            Log.i("Finished sending email", "");
+            if (txtHead.getText().toString().length() == 0)
+                txtHead.setError("First name is required!");
+            if (txtBody.getText().toString().length() == 0)
+                txtBody.setError("Password is required!");
+            else {
+                startActivity(Intent.createChooser(intent, "Choice App to send email:"));
+                finish();
+                Log.i("Finished sending email", "");
+            }
 
         }
     };
@@ -197,6 +212,7 @@ public class ComplainActivity extends AppCompatActivity {
             public void handleResponse(Complain response) {
                 Toast.makeText(ComplainActivity.this, "Posted in forum", Toast.LENGTH_SHORT).show();
                 objectId = response.getObjectId();
+
 //                Log.e(TAG, "object id " + objectId);
                 Backendless.Persistence.of(Complain.class).findFirst(new AsyncCallback<Complain>() {
                     @Override
