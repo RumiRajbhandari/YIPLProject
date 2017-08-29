@@ -52,6 +52,7 @@
             android:id="@+id/aboutus"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            android:elevation="24dp"
             android:layout_marginStart="25dp"
             android:layout_weight="10"
             android:src="@drawable/aboutus" />

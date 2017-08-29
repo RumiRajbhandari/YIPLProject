@@ -37,8 +37,9 @@ public class ContractorActivity extends AppCompatActivity {
     }
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new ListOfProjectsFragment(), "List of Projects");
+
         adapter.addFragment(new MapFragment(), "Location of Projects");
+        adapter.addFragment(new ListOfProjectsFragment(), "List of Projects");
         viewPager.setAdapter(adapter);
     }
 

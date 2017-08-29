@@ -1,33 +1,32 @@
 package com.example.root.yiplproject.fragment;
 
 
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
+import com.example.root.yiplproject.FirstProject;
 import com.example.root.yiplproject.R;
+import com.example.root.yiplproject.SecondProject;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.Cap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.Polyline;
-import com.google.android.gms.maps.model.PolylineOptions;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MapFragment extends Fragment implements OnMapReadyCallback,GoogleMap.OnPolylineClickListener, GoogleMap.OnInfoWindowClickListener,
+public class MapFragment extends Fragment implements OnMapReadyCallback,GoogleMap.OnPolylineClickListener,
         GoogleMap.OnPolygonClickListener {
     GoogleMap mgoogleMap;
     MapView mMapView;
@@ -69,58 +68,54 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,GoogleMa
     public void onPolygonClick(Polygon polygon) {
 
 
-
     }
 
     @Override
     public void onPolylineClick(Polyline polyline) {
 
-
     }
 
     @Override
-    public void onMapReady(final GoogleMap googleMap) {
+    public void onMapReady(GoogleMap googleMap) {
         MapsInitializer.initialize(getContext());
-//        mgoogleMap=googleMap;
-        PolylineOptions polylineOptions=new PolylineOptions().add(balkumari).add(satdobato).add(ekantakuna).add(kalanki).width(5).color(Color.BLUE).geodesic(true);
-        Polyline polyline = googleMap.addPolyline(polylineOptions);
-        polyline.setClickable(true);
-        googleMap.addPolyline(polylineOptions);
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(balkumari,13));
-        // Set listeners for click events.
-googleMap.setOnPolylineClickListener(new GoogleMap.OnPolylineClickListener() {
-    @Override
-    public void onPolylineClick(Polyline polyline) {
-
-        Marker Bal = googleMap.addMarker(new MarkerOptions()
+        mgoogleMap=googleMap;
+        Marker mbalkumari = googleMap.addMarker(new MarkerOptions()
                 .position(balkumari)
-                .title("Contract:Hirachan Construction")
-                .snippet("Current Location:Balkumari"));
-        Bal.showInfoWindow();
-        Marker Sat = googleMap.addMarker(new MarkerOptions()
+                .title("Construction of drain, asphalt concrete")
+                .snippet("Contract:Sunkoshi Construction "));
+        Marker msatdobato = googleMap.addMarker(new MarkerOptions()
                 .position(satdobato)
-                .title("Contract:Hirachan Construction")
-                .snippet("Current Location:Satobato"));
-        Sat.showInfoWindow();
-        Marker Kalanki = googleMap.addMarker(new MarkerOptions()
+                .title("Construction of overhead pedestrian crossing Bridge")
+                .snippet("Contract:Hirachan Construction"));
+        Marker mKalanki = googleMap.addMarker(new MarkerOptions()
                 .position(kalanki)
-                .title("Contract:Hirachan Construction")
+                .title("Contract:Santi Nirman Sewa")
                 .snippet("Current Location:Kalanki" ));
-        Kalanki.showInfoWindow();
-        Marker Ekantakuna=googleMap.addMarker(new MarkerOptions()
-        .position(ekantakuna)
-                .title("Contract:Hirachan Construction")
+        Marker mEkantakuna=googleMap.addMarker(new MarkerOptions()
+                .position(ekantakuna)
+                .title("Contract:Shuva Om Nirman Sewa")
                 .snippet("Current Location:Ekantakuna" ));
-        Ekantakuna.showInfoWindow();
 
-    }
-});
+        mgoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(balkumari, 12.0f));
+        mgoogleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+            @Override
+            public void onInfoWindowClick(Marker marker) {
+                String[] str = marker.getId().split("m");
+                int i=Integer.parseInt(str[1]);
+                if (i == 0) {
+                    Intent in = new Intent(getContext(), FirstProject.class);
+                    // aboutcsit.putExtra("listname",listView.getItemAtPosition(i).toString());
+                    startActivity(in);
+                }
+                else if (i == 1) {
+                    Intent inten = new Intent(getContext(), SecondProject.class);
+                    //pakistan.putExtra("listname",listView.getItemAtPosition(i).toString());
+                    startActivity(inten);
+                }
+            }
+        });
 
-    }
 
-
-    @Override
-    public void onInfoWindowClick(Marker marker) {
 
     }
 }
